@@ -1,0 +1,161 @@
+/* カラーパレット */
+:root {
+    --bg: #FCF4DE;
+    --blue-light: #BADDDF;
+    --blue: #54A2B2;
+    --pink: #ED8E8C;
+    --yellow: #F9D676;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: var(--bg);
+    font-family: "Helvetica Neue", sans-serif;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* ロゴ */
+  .header {
+    position: absolute;
+    top: 6px;
+    left: 24px;
+    z-index: 10;
+  }
+  
+  .logo {
+    width: 240px;
+  }
+  
+  /* 全体レイアウト */
+  .container {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+  }
+  
+  /* メインビジュアル */
+  .main-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .main-visual img {
+    max-width: 80%;
+    height: auto;
+    margin-left: -30px;
+  }
+
+  .skill-line-area {
+    width: 320px;
+    margin-bottom: 8px;
+    transform: translateY(-80px);
+  }
+  
+  .skill-line {
+    position: relative;
+    width: 100%;
+    height: 22px;
+    overflow: hidden;
+  }
+  
+  /* アンダーライン */
+  .skill-line::after {
+    content: "";
+    position: absolute;
+    bottom: 2px;        /* ← 文字の下 */
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.6);
+  }
+  
+  /* 流れる文字 */
+  .skill-track {
+    display: inline-flex;
+    white-space: nowrap;
+    animation: scrollText 50s linear infinite;
+  }
+  
+  .skill-track span {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    padding-right: 2em;
+    color: #000;
+    opacity: 0.7;
+  }
+  @keyframes scrollText {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  /* キャッチフレーズエリア */
+  .catch-area {
+    flex: 0.6;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 16px; /* ← ここが重要 */
+  }
+  
+  .catch-text {
+    font-family: "vdl-megamaru", sans-serif;
+    font-size: 40px;
+    line-height: 1.8;
+    letter-spacing: 0.12em;
+    color: #ED8E8C;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+    z-index: 2;
+  }
+  
+  /* 表示用クラス */
+  .catch-text.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* メニュー */
+  .menu {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-right: 0;
+  }
+  
+  /* はみ出すボタン */
+  .menu-btn {
+    background-color: var(--blue-light);
+    color: #333;
+    text-decoration: none;
+    padding: 20px 60px;
+    border-radius: 60px;
+    font-family: "vdl-megamaru", sans-serif;
+    font-size: 20px;
+    width: 360px; /* 画面外にはみ出す */
+    box-shadow: 0 8px 0 rgba(84, 162, 178, 0.15);
+    transform: translateX(60px);
+    transition: all 0.3s ease;
+  }
+  
+  /* ホバー */
+  .menu-btn:hover {
+    background-color: var(--pink);
+    box-shadow: 0 4px 0 rgba(84, 162, 178, 0.25);
+    transform: translateX(20px);
+  }
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+
+<!--フォントメガ丸-->
+<script>
+    (function(d) {
+      var config = {
+        kitId: 'vmj6bcq',
+        scriptTimeout: 3000,
+        async: true
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+  </script>
+
+
+</head>
+<body>
+
+  <!-- ロゴ -->
+  <header class="header">
+    <img src="images/logo.png" alt="logo" class="logo">
+  </header>
+
+  <main class="container">
+    <!-- 左：メインビジュアル -->
+    <div class="main-visual">
+      <img src="images/main.png" alt="main visual">
+    </div>
+    
+    <div class="catch-area">
+
+        <!-- 流れるスキル -->
+        <div class="skill-line-area">
+            <div class="skill-line">
+              <div class="skill-track">
+                <span>illustration　design　music　MV　web　</span>
+                <span>illustration　design　music　MV　web　</span>
+                <span>illustration　design　music　MV　web　</span>
+              </div>
+            </div>
+          </div>
+      
+        <!-- キャッチフレーズ -->
+        <p class="catch-text">
+          こころ、<br>
+          惹かれるものづくり。
+        </p>
+      
+      </div>
+
+    <!-- 右：メニュー -->
+    <nav class="menu">
+      <a href="#works" class="menu-btn">Works</a>
+      <a href="#profile" class="menu-btn">Profile</a>
+      <a href="#about" class="menu-btn">About</a>
+      <a href="#news" class="menu-btn">News</a>
+    </nav>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
