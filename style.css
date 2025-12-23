@@ -1,7 +1,8 @@
 /* カラーパレット */
 :root {
     --bg: #FCF4DE;
-    --blue-light: #BADDDF;
+  --nav-width: 280px;
+  --blue-light: #BADDDF;
     --blue: #54A2B2;
     --pink: #ED8E8C;
     --yellow: #F9D676;
@@ -16,16 +17,26 @@
   body {
     background-color: var(--bg);
     font-family: "Helvetica Neue", sans-serif;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    height: 100%;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: y mandatory;
   }
   
   /* ロゴ */
   .header {
     position: absolute;
     top: 6px;
-    left: 24px;
+    left: 0;
+    right: 0;
     z-index: 10;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 24px;
   }
   
   .logo {
@@ -35,8 +46,10 @@
   /* 全体レイアウト */
   .container {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
     align-items: center;
+    padding-top: 40px;
+    scroll-snap-align: start;
   }
   
   /* メインビジュアル */
@@ -107,7 +120,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    gap: 16px; /* ← ここが重要 */
+    gap: 16px; 
   }
   
   .catch-text {
@@ -135,6 +148,7 @@
     flex-direction: column;
     gap: 24px;
     padding-right: 0;
+    transform: translateY(-36px); /* 上に少し移動 */
   }
   
   /* はみ出すボタン */
@@ -158,4 +172,66 @@
     box-shadow: 0 4px 0 rgba(84, 162, 178, 0.25);
     transform: translateX(20px);
   }
+/* ヘッダー右のアクション */
+.header-actions { display: flex; align-items: center; gap: 12px; }
+.socials { display: flex; gap: 10px; align-items: center; }
+.social-link {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  text-decoration: none;
+  transition: transform 160ms cubic-bezier(.2,.8,.2,1), box-shadow 160ms;
+  -webkit-tap-highlight-color: transparent;
+}
+.social-link svg { display: block; }
+.social-link:hover { transform: translateY(-3px); box-shadow: 0 8px 18px rgba(0,0,0,0.12); }
+.social-link.clicked, .social-link:active { transform: scale(0.92); transition: transform 140ms ease; }
+@media (max-width: 640px) { .socials { gap: 8px; } .social-link { width: 36px; height: 36px; } }
+@media (max-width: 640px) {
+  .menu { transform: none; }
+}
+
+/* Section 共通 */
+.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  scroll-snap-align: start;
+  background: transparent;
+}
+.section:nth-of-type(odd) { background: transparent; }
+.section-inner { max-width: 900px; }
+.section h2 { font-size: 32px; margin-bottom: 12px; }
+
+/* Scroll indicator（右下縦） */
+.scroll-indicator {
+  position: fixed;
+  right: 26px;
+  bottom: 18px;
+  z-index: 60;
+  background: transparent;
+  pointer-events: none;
+}
+.scroll-indicator span {
+  display: inline-block;
+  background: rgba(255,255,255,0.95);
+  color: #333;
+  padding: 14px 10px;
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  writing-mode: vertical-rl;
+  transform-origin: center;
+  font-family: "vdl-megamaru", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+.scroll-indicator.hidden { opacity: 0; transform: translateY(8px) scale(0.98); transition: opacity 240ms, transform 240ms; }
+.scroll-indicator span { transition: transform 180ms ease, opacity 180ms ease; }
 
