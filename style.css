@@ -235,3 +235,103 @@
 .scroll-indicator.hidden { opacity: 0; transform: translateY(8px) scale(0.98); transition: opacity 240ms, transform 240ms; }
 .scroll-indicator span { transition: transform 180ms ease, opacity 180ms ease; }
 
+/*ーーーーーーーーーーーーーーーーーー
+  ① タブレット（横・縦）
+ーーーーーーーーーーーーーーーーーー*/
+@media (max-width: 1024px) {
+
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+    padding: 100px 20px 40px;
+  }
+
+  .main-visual img {
+    max-width: 90%;
+    margin-left: 0;
+  }
+
+  .catch-area {
+    align-items: center;
+    text-align: center;
+  }
+
+  .skill-line-area {
+    transform: translateY(-20px);
+  }
+
+  .menu {
+    width: 100%;
+    align-items: center;
+    transform: none;
+  }
+
+  .menu-btn {
+    width: 100%;
+    max-width: 380px;
+    transform: none;
+  }
+
+  .logo {
+    width: 180px;
+  }
+}
+
+
+/*ーーーーーーーーーーーーーーーーーー
+  ② スマホ（縦）
+ーーーーーーーーーーーーーーーーーー*/
+@media (max-width: 640px) {
+
+  body {
+    scroll-snap-type: none;
+  }
+
+  .header {
+    padding: 8px 14px;
+  }
+
+  .logo {
+    width: 150px;
+  }
+
+  .container {
+    gap: 20px;
+    padding-top: 90px;
+  }
+
+  .main-visual img {
+    max-width: 100%;
+  }
+
+  .catch-text {
+    font-size: 26px;
+    line-height: 1.7;
+    text-align: center;
+  }
+
+  .skill-line-area {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    transform: translateY(-10px);
+  }
+
+  .menu {
+    width: 100%;
+    gap: 18px;
+  }
+
+  .menu-btn {
+    width: 100%;
+    max-width: 320px;
+    padding: 16px 24px;
+    font-size: 18px;
+  }
+
+  .scroll-indicator {
+    right: 10px;
+    bottom: 10px;
+  }
+}
